@@ -1,5 +1,6 @@
 class StudentsController < ApplicationController
   before_action :authenticate_user
+  before_action :authenticate_admin, except: [:show]
 
   def index
     @students = Student.all
