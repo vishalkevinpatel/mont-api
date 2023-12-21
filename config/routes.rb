@@ -17,4 +17,10 @@ Rails.application.routes.draw do
   delete "/users/:id" => "users#destroy"
 
   post "/sessions" => "sessions#create"
+
+  get "/attendances" => "attendances#index"
+  get "/attendances/:id" => "attendances#show"
+  post "/attendances" => "attendances#create"
+  patch "/attendances/:id" => "attendances#update"
+  delete "/attendances/:id" => "attendances#destroy"
 end
