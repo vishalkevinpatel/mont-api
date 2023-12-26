@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
   def create
     user = User.new(
       name: params[:name],
@@ -22,4 +23,6 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     render :show
   end
+
+
 end

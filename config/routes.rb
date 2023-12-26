@@ -16,11 +16,26 @@ Rails.application.routes.draw do
   patch "/users/:id" => "users#update"
   delete "/users/:id" => "users#destroy"
 
+  get "/teachers" => "teachers#index"
+  get "/teachers/:id" => "teachers#show"
+  post "/teachers" => "teachers#create"
+  patch "/teachers/:id" => "teachers#update"
+  delete "/teachers/:id" => "teachers#destroy"
+
+  get "/messages" => "messages#index"
+  get "/messages/:id" => "messages#show"
+  post "/messages" => "messages#create"
+  patch "/messages/:id" => "messages#update"
+  delete "/messages/:id" => "messages#destroy"
+
   post "/sessions" => "sessions#create"
+  post "/sessions_teachers" => "sessions_teachers#create"
 
   get "/attendances" => "attendances#index"
   get "/attendances/:id" => "attendances#show"
   post "/attendances" => "attendances#create"
   patch "/attendances/:id" => "attendances#update"
   delete "/attendances/:id" => "attendances#destroy"
+
+  # root "users#index"
 end

@@ -1,5 +1,5 @@
 class AttendancesController < ApplicationController
-  before_action :authenticate_admin, except: [:show]
+  before_action :authenticate_teacher, except: [:show]
 
   def index
     @attendances = Attendance.all
@@ -9,6 +9,7 @@ class AttendancesController < ApplicationController
   def create
     @attendance = Attendance.create(
       student_id: params[:student_id],
+      teacher_id: current_teacher.id,
       date: params[:date],
       presence: params[:presence],
     )
@@ -26,6 +27,7 @@ class AttendancesController < ApplicationController
       student_id: params[:student_id] || @attendance.student_id,
       date: params[:date] || @attendance.date,
       presence: params[:presence] || @attendance.presence,
+      teacher_id: params[:teacher_id] || current_teacher.id,
     )
     render :show
   end
