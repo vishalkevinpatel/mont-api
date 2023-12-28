@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  
   def create
     user = User.new(
       name: params[:name],
@@ -24,5 +23,9 @@ class UsersController < ApplicationController
     render :show
   end
 
-
+  def destroy
+    @user = user.find_by(id: params[:id])
+    @user.destroy
+    render json: { message: "its gone" }
+  end
 end

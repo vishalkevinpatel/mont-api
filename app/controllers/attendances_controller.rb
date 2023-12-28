@@ -1,5 +1,5 @@
 class AttendancesController < ApplicationController
-  before_action :authenticate_teacher, except: [:show]
+  # before_action :authenticate_teacher, except: [:show]
 
   def index
     @attendances = Attendance.all
@@ -22,6 +22,7 @@ class AttendancesController < ApplicationController
   end
 
   def update
+    pp current_teacher
     @attendance = Attendance.find_by(id: params[:id])
     @attendance.update(
       student_id: params[:student_id] || @attendance.student_id,

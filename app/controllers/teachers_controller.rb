@@ -1,6 +1,4 @@
 class TeachersController < ApplicationController
-  
-
   def create
     teacher = Teacher.new(
       name: params[:name],
@@ -25,5 +23,10 @@ class TeachersController < ApplicationController
     render :show
   end
 
-  
+
+  def destroy
+    @teacher = Teacher.find_by(id: params[:id])
+    @teacher.destroy
+    render json: { message: "its gone" }
+  end
 end

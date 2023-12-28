@@ -1,5 +1,5 @@
 json.id attendance.id
-json.student attendance.student&.name
+json.student attendance.student, partial: "students/student", as: :student
 json.teacher attendance.teacher&.name
 json.date attendance.date
 json.presence attendance.presence

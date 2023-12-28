@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :authenticate_teacher, only: [:create, :update, :destroy, :index]
+  # before_action :authenticate_teacher, only: [:create, :update, :destroy, :index]
 
   def index
     @students = Student.all
@@ -41,5 +41,4 @@ class StudentsController < ApplicationController
     @student.destroy
     render json: { message: "its gone" }
   end
-
 end
