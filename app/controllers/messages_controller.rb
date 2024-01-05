@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  before_action :authenticate, except: [:show]
+
   def index
     @messages = Message.all
     render :index

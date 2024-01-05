@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  # before_action :authenticate_teacher, only: [:create, :update, :destroy, :index]
+  before_action :authenticate, except: [:show]
 
   def index
     @students = Student.all

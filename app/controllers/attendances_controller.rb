@@ -1,5 +1,5 @@
 class AttendancesController < ApplicationController
-  # before_action :authenticate_teacher, except: [:show]
+  before_action :authenticate, except: [:show]
 
   def index
     @attendances = Attendance.all
